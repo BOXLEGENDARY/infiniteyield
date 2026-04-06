@@ -15,5 +15,5 @@ Fix
  - using ZxL Dex
  - using new SimpleSpy
 
-# Original
-[infiniteyield](https://github.com/EdgeIY/infiniteyield)
+# Credit
+[Edge](https://github.com/EdgeIY/infiniteyield)
