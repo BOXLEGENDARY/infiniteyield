@@ -13,7 +13,7 @@ New Commands
 
 Fix
  - using ZxL Dex
- - using new SimpleSpy
+ - using new SimpleSpy ( mobile support )
 
 # Credit
 [Edge](https://github.com/EdgeIY/infiniteyield)
