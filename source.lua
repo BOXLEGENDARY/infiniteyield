@@ -149,7 +149,7 @@ if makefolder and isfolder and writefile and isfile then
 	end)
 end
 
-currentVersion = "6.5"
+currentVersion = "6.4.1"
 
 ScaledHolder = Instance.new("Frame")
 Scale = Instance.new("UIScale")
@@ -359,6 +359,8 @@ Title.Text = "Infinite Yield FE v" .. currentVersion
 do
 	local emoji = ({
 		["01 01"] = "🎆",
+		["02 14"] = "💝",
+		["03 17"] = "☘️",
 		[(function(Year)
 			local A = math.floor(Year/100)
 			local B = math.floor((13+8*A)/25)
@@ -2280,6 +2282,7 @@ eventEditor = (function()
 						for count,arg in pairs(args) do
 							cmdStr = cmdStr:gsub("%$"..count,arg)
 						end
+						if cmdStr:lower():match("plugin") then return end
 						wait(cmd[3] or 0)
 						execCmd(cmdStr)
 					end))
@@ -4464,9 +4467,9 @@ CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by ZxL'}
 CMDs[#CMDs + 1] = {NAME = 'olddex / odex', DESC = 'Opens Old DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens Simple Spy'}
 CMDs[#CMDs + 1] = {NAME = 'hydroxide / hyd', DESC = 'Opens Hydroxide'}
-CMDs[#CMDs + 1] = {NAME = 'executor', DESC = 'Opens an internal executor gui by dnezero'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
+CMDs[#CMDs + 1] = {NAME = 'serverscan', DESC = 'Scans strings for server references and reconstructs them'}
 CMDs[#CMDs + 1] = {NAME = 'jobid', DESC = 'Copies the games JobId to your clipboard'}
 CMDs[#CMDs + 1] = {NAME = 'notifyjobid', DESC = 'Notifies you the games JobId'}
 CMDs[#CMDs + 1] = {NAME = 'rejoin / rj', DESC = 'Makes you rejoin the game'}
@@ -6905,6 +6908,10 @@ addcmd('serverinfo',{'info','sinfo'},function(args, speaker)
 			wait(1)
 		until SINFOGUI.Parent == nil
 	end)
+end)
+
+addcmd("serverscan", {}, function(args, speaker)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/serverscanner.lua"))()
 end)
 
 addcmd("jobid", {}, function(args, speaker)
@@ -10534,12 +10541,6 @@ addcmd('hydroxide',{'hyd'},function(args, speaker)
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/Hydroxide/refs/heads/main/loadstring.lua"))()
 end)
 
-addcmd("executor", {}, function(args, speaker)
-    -- by dnezero
-    notify("Loading", "Hold on a sec")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/executor.lua"))()
-end)
-
 addcmd('audiologger',{'alogger'},function(args, speaker)
 	notify("Loading",'Hold on a sec')
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/infyiff/backup/main/audiologger.lua'),true))()
@@ -13234,7 +13235,7 @@ end)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/infiniteyield/master/version.json")
+		local versionJson = game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version")
 		return HttpService:JSONDecode(versionJson)
 	end)
 
