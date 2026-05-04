@@ -8,12 +8,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/infinite
  - Open Source
 
 # New updates
-New Commands
- - hydroxide / hyd
-
-Fix
- - using ZxL Dex
- - using new SimpleSpy ( mobile support )
+update to lasted 
 
 # Credit
 [Edge](https://github.com/EdgeIY/infiniteyield)
