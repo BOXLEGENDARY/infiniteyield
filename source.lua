@@ -13235,13 +13235,13 @@ end)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version")
+		local versionJson = game:HttpGet("https://raw.githubusercontent.com/BOXLEGENDARY/infiniteyield/master/version.json")
 		return HttpService:JSONDecode(versionJson)
 	end)
 
 	if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			notify("Outdated", "Get the new version at infyiff.github.io")
+			notify("Outdated", "Get the new version at https://github.com/BOXLEGENDARY/infiniteyield")
 		end
 
 		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= "" then
